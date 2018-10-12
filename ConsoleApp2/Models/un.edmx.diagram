@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98df8d170fed4c759e1450e694b7ae0b" Name="Diagram1">
+        <EntityTypeShape EntityType="UNModel.Activity" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Albums" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Authority" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Category" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.CategoryType" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.City" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Club" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.ClubActivity" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Member" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberActivity" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberActivityDetail" Width="1.5" PointX="12.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberCategory" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberClub" Width="1.5" PointX="10.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberPairList" Width="1.5" PointX="8.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.MemberStatus" Width="1.5" PointX="10.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Pair" Width="1.5" PointX="6" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Photo" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.PhotoCategory" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.PhotoLike" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Status" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNModel.Stores" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <AssociationConnector Association="UNModel.FK_Activity_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Activity_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Activity_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Activity_Stores" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_ClubActivity_Activity" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberActivity_Activity" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Albums_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Photo_Albums" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Member_Authority" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Category_CategoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Club_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Member_City" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Club_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_ClubActivity_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberClub_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberActivityDetail_ClubActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberActivity_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberCategory_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberClub_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberPairList_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberStatus_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberStatus_Member1" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_PhotoLike_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberActivityDetail_MemberActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberActivityDetail_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberPairList_Pair" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_MemberStatus_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_Photo_PhotoCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="UNModel.FK_PhotoLike_Photo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ActIntroduction" Type="nvarchar(max)" />
+          <Property Name="ActStartDate" Type="datetime" />
+          <Property Name="ActEndDate" Type="datetime" />
+          <Property Name="ActAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="ActNumber" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ActPhoto" Type="varbinary(max)" />
+          <Property Name="ActPhotoName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="AlbumsID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="AlbumsName" Type="nvarchar" MaxLength="20" />
+          <Property Name="AlbumsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlbumsIntroduction" Type="nvarchar(max)" />
+          <Property Name="AlbumsDate" Type="datetime" Nullable="false" />
+          <Property Name="Cover" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="AuthorityID" />
+          </Key>
+          <Property Name="AuthorityID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="AuthorityName" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryType">
+          <Key>
+            <PropertyRef Name="CategoryTypeID" />
+          </Key>
+          <Property Name="CategoryTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryTypeName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClubName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ClubIntroduction" Type="nvarchar(max)" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ClubImage" Type="varbinary(max)" />
+          <Property Name="Clubimagename" Type="nvarchar(max)" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="ClubActivity">
+          <Key>
+            <PropertyRef Name="ClubActivityID" />
+          </Key>
+          <Property Name="ClubActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActID" Type="int" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="MemeberAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="MemeberPhone" Type="nvarchar" MaxLength="10" />
+          <Property Name="MemeberIntroduction" Type="nvarchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AuthorityID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="MemberImage" Type="nvarchar(max)" />
+          <Property Name="RegistrationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MemberActivity">
+          <Key>
+            <PropertyRef Name="MemberActivityID" />
+          </Key>
+          <Property Name="MemberActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ActID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberActivityDetail">
+          <Key>
+            <PropertyRef Name="MemberActivityDetailID" />
+          </Key>
+          <Property Name="MemberActivityDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberActivityID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ActivityStatus" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ClubActivityID" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberCategory">
+          <Key>
+            <PropertyRef Name="MemberCategroyID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="CategroyID" Type="int" Nullable="false" />
+          <Property Name="MemberCategroyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberClub">
+          <Key>
+            <PropertyRef Name="MemberClubID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="MemberClubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberPairList">
+          <Key>
+            <PropertyRef Name="MemberPairListID" />
+          </Key>
+          <Property Name="MemberPairListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="PairMemberID" Type="int" Nullable="false" />
+          <Property Name="PairID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Pairtime" Type="datetime" />
+          <Property Name="Changetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MemberStatus">
+          <Key>
+            <PropertyRef Name="MemberStatusID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="pMemberID" Type="int" Nullable="false" />
+          <Property Name="MemberStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pair">
+          <Key>
+            <PropertyRef Name="PairID" />
+          </Key>
+          <Property Name="PairID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="PairName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="20" />
+          <Property Name="PhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoIntroduction" Type="nvarchar(max)" />
+          <Property Name="PhotoDate" Type="datetime" Nullable="false" />
+          <Property Name="AlbumsID" Type="int" Nullable="false" />
+          <Property Name="PhotoFileName" Type="nvarchar(max)" />
+          <Property Name="PhotoCategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoCategory">
+          <Key>
+            <PropertyRef Name="PhotoCategoryID" />
+          </Key>
+          <Property Name="PhotoCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoCategoryname" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoLike">
+          <Key>
+            <PropertyRef Name="PhotoLikeID" />
+          </Key>
+          <Property Name="PhotoLikeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stores">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StoreAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StorePhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="StoreCategoryID" Type="int" Nullable="false" />
+          <Property Name="StoreIntroduction" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Activity_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Stores">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Albums_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CategoryType">
+          <End Role="CategoryType" Type="Self.CategoryType" Multiplicity="1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryType">
+              <PropertyRef Name="CategoryTypeID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="CategoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Club_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Club_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="ClubActivity">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubActivity_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="ClubActivity">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Authority">
+          <End Role="Authority" Type="Self.Authority" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="MemberActivity">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivity_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberActivity">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_ClubActivity">
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="0..1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubActivity">
+              <PropertyRef Name="ClubActivityID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="ClubActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_MemberActivity">
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberActivity">
+              <PropertyRef Name="MemberActivityID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="MemberActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="ActivityStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="MemberCategory" Type="Self.MemberCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="MemberCategory">
+              <PropertyRef Name="CategroyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberCategory_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberCategory" Type="Self.MemberCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberCategory">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberClub_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="MemberClub" Type="Self.MemberClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="MemberClub">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberClub_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberClub" Type="Self.MemberClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberClub">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPairList_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberPairList" Type="Self.MemberPairList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberPairList">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPairList_Pair">
+          <End Role="Pair" Type="Self.Pair" Multiplicity="1" />
+          <End Role="MemberPairList" Type="Self.MemberPairList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pair">
+              <PropertyRef Name="PairID" />
+            </Principal>
+            <Dependent Role="MemberPairList">
+              <PropertyRef Name="PairID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Member1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="pMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_Albums">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumsID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="AlbumsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_PhotoCategory">
+          <End Role="PhotoCategory" Type="Self.PhotoCategory" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoCategory">
+              <PropertyRef Name="PhotoCategoryID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="PhotoCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoLike_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="PhotoLike" Type="Self.PhotoLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="PhotoLike">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoLike_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="PhotoLike" Type="Self.PhotoLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="PhotoID" />
+            </Principal>
+            <Dependent Role="PhotoLike">
+              <PropertyRef Name="PhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authority" EntityType="Self.Authority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryType" EntityType="Self.CategoryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClubActivity" EntityType="Self.ClubActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberActivity" EntityType="Self.MemberActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberActivityDetail" EntityType="Self.MemberActivityDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberCategory" EntityType="Self.MemberCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberClub" EntityType="Self.MemberClub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberPairList" EntityType="Self.MemberPairList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberStatus" EntityType="Self.MemberStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pair" EntityType="Self.Pair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoCategory" EntityType="Self.PhotoCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoLike" EntityType="Self.PhotoLike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Activity_Category" Association="Self.FK_Activity_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Member" Association="Self.FK_Activity_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Status" Association="Self.FK_Activity_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Stores" Association="Self.FK_Activity_Stores">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Albums_Member" Association="Self.FK_Albums_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CategoryType" Association="Self.FK_Category_CategoryType">
+            <End Role="CategoryType" EntitySet="CategoryType" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Club_Category" Association="Self.FK_Club_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Club" EntitySet="Club" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Club_Member" Association="Self.FK_Club_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Club" EntitySet="Club" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubActivity_Activity" Association="Self.FK_ClubActivity_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubActivity_Club" Association="Self.FK_ClubActivity_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Authority" Association="Self.FK_Member_Authority">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_City" Association="Self.FK_Member_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivity_Activity" Association="Self.FK_MemberActivity_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivity_Member" Association="Self.FK_MemberActivity_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_ClubActivity" Association="Self.FK_MemberActivityDetail_ClubActivity">
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_MemberActivity" Association="Self.FK_MemberActivityDetail_MemberActivity">
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_Status" Association="Self.FK_MemberActivityDetail_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberCategory_Category" Association="Self.FK_MemberCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="MemberCategory" EntitySet="MemberCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberCategory_Member" Association="Self.FK_MemberCategory_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberCategory" EntitySet="MemberCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberClub_Club" Association="Self.FK_MemberClub_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="MemberClub" EntitySet="MemberClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberClub_Member" Association="Self.FK_MemberClub_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberClub" EntitySet="MemberClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPairList_Member" Association="Self.FK_MemberPairList_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberPairList" EntitySet="MemberPairList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPairList_Pair" Association="Self.FK_MemberPairList_Pair">
+            <End Role="Pair" EntitySet="Pair" />
+            <End Role="MemberPairList" EntitySet="MemberPairList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Member" Association="Self.FK_MemberStatus_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Member1" Association="Self.FK_MemberStatus_Member1">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Status" Association="Self.FK_MemberStatus_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Albums" Association="Self.FK_Photo_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_PhotoCategory" Association="Self.FK_Photo_PhotoCategory">
+            <End Role="PhotoCategory" EntitySet="PhotoCategory" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoLike_Member" Association="Self.FK_PhotoLike_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="PhotoLike" EntitySet="PhotoLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoLike_Photo" Association="Self.FK_PhotoLike_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="PhotoLike" EntitySet="PhotoLike" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ActIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ActEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ActAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <Property Name="ActNumber" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ActPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ActPhotoName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Activity_Category" FromRole="Activity" ToRole="Category" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Activity_Member" FromRole="Activity" ToRole="Member" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Activity_Status" FromRole="Activity" ToRole="Status" />
+          <NavigationProperty Name="Stores" Relationship="Self.FK_Activity_Stores" FromRole="Activity" ToRole="Stores" />
+          <NavigationProperty Name="ClubActivity" Relationship="Self.FK_ClubActivity_Activity" FromRole="Activity" ToRole="ClubActivity" />
+          <NavigationProperty Name="MemberActivity" Relationship="Self.FK_MemberActivity_Activity" FromRole="Activity" ToRole="MemberActivity" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="AlbumsID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="AlbumsName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AlbumsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumsIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlbumsDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Albums_Member" FromRole="Albums" ToRole="Member" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Photo_Albums" FromRole="Albums" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="AuthorityID" />
+          </Key>
+          <Property Name="AuthorityID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AuthorityName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Member_Authority" FromRole="Authority" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_Activity_Category" FromRole="Category" ToRole="Activity" />
+          <NavigationProperty Name="CategoryType" Relationship="Self.FK_Category_CategoryType" FromRole="Category" ToRole="CategoryType" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_Club_Category" FromRole="Category" ToRole="Club" />
+          <NavigationProperty Name="MemberCategory" Relationship="Self.FK_MemberCategory_Category" FromRole="Category" ToRole="MemberCategory" />
+        </EntityType>
+        <EntityType Name="CategoryType">
+          <Key>
+            <PropertyRef Name="CategoryTypeID" />
+          </Key>
+          <Property Name="CategoryTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryTypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Category_CategoryType" FromRole="CategoryType" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Member_City" FromRole="City" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClubName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ClubIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ClubImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Clubimagename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Club_Category" FromRole="Club" ToRole="Category" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Club_Member" FromRole="Club" ToRole="Member" />
+          <NavigationProperty Name="ClubActivity" Relationship="Self.FK_ClubActivity_Club" FromRole="Club" ToRole="ClubActivity" />
+          <NavigationProperty Name="MemberClub" Relationship="Self.FK_MemberClub_Club" FromRole="Club" ToRole="MemberClub" />
+        </EntityType>
+        <EntityType Name="ClubActivity">
+          <Key>
+            <PropertyRef Name="ClubActivityID" />
+          </Key>
+          <Property Name="ClubActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActID" Type="Int32" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_ClubActivity_Activity" FromRole="ClubActivity" ToRole="Activity" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_ClubActivity_Club" FromRole="ClubActivity" ToRole="Club" />
+          <NavigationProperty Name="MemberActivityDetail" Relationship="Self.FK_MemberActivityDetail_ClubActivity" FromRole="ClubActivity" ToRole="MemberActivityDetail" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MemeberAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="MemeberPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MemeberIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorityID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MemberImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_Activity_Member" FromRole="Member" ToRole="Activity" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_Albums_Member" FromRole="Member" ToRole="Albums" />
+          <NavigationProperty Name="Authority" Relationship="Self.FK_Member_Authority" FromRole="Member" ToRole="Authority" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Member_City" FromRole="Member" ToRole="City" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_Club_Member" FromRole="Member" ToRole="Club" />
+          <NavigationProperty Name="MemberActivity" Relationship="Self.FK_MemberActivity_Member" FromRole="Member" ToRole="MemberActivity" />
+          <NavigationProperty Name="MemberCategory" Relationship="Self.FK_MemberCategory_Member" FromRole="Member" ToRole="MemberCategory" />
+          <NavigationProperty Name="MemberClub" Relationship="Self.FK_MemberClub_Member" FromRole="Member" ToRole="MemberClub" />
+          <NavigationProperty Name="MemberPairList" Relationship="Self.FK_MemberPairList_Member" FromRole="Member" ToRole="MemberPairList" />
+          <NavigationProperty Name="MemberStatus" Relationship="Self.FK_MemberStatus_Member" FromRole="Member" ToRole="MemberStatus" />
+          <NavigationProperty Name="MemberStatus1" Relationship="Self.FK_MemberStatus_Member1" FromRole="Member" ToRole="MemberStatus" />
+          <NavigationProperty Name="PhotoLike" Relationship="Self.FK_PhotoLike_Member" FromRole="Member" ToRole="PhotoLike" />
+        </EntityType>
+        <EntityType Name="MemberActivity">
+          <Key>
+            <PropertyRef Name="MemberActivityID" />
+          </Key>
+          <Property Name="MemberActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="ActID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_MemberActivity_Activity" FromRole="MemberActivity" ToRole="Activity" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberActivity_Member" FromRole="MemberActivity" ToRole="Member" />
+          <NavigationProperty Name="MemberActivityDetail" Relationship="Self.FK_MemberActivityDetail_MemberActivity" FromRole="MemberActivity" ToRole="MemberActivityDetail" />
+        </EntityType>
+        <EntityType Name="MemberActivityDetail">
+          <Key>
+            <PropertyRef Name="MemberActivityDetailID" />
+          </Key>
+          <Property Name="MemberActivityDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberActivityID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActivityStatus" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ClubActivityID" Type="Int32" />
+          <NavigationProperty Name="ClubActivity" Relationship="Self.FK_MemberActivityDetail_ClubActivity" FromRole="MemberActivityDetail" ToRole="ClubActivity" />
+          <NavigationProperty Name="MemberActivity" Relationship="Self.FK_MemberActivityDetail_MemberActivity" FromRole="MemberActivityDetail" ToRole="MemberActivity" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_MemberActivityDetail_Status" FromRole="MemberActivityDetail" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="MemberCategory">
+          <Key>
+            <PropertyRef Name="MemberCategroyID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="CategroyID" Type="Int32" Nullable="false" />
+          <Property Name="MemberCategroyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_MemberCategory_Category" FromRole="MemberCategory" ToRole="Category" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberCategory_Member" FromRole="MemberCategory" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MemberClub">
+          <Key>
+            <PropertyRef Name="MemberClubID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="MemberClubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_MemberClub_Club" FromRole="MemberClub" ToRole="Club" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberClub_Member" FromRole="MemberClub" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MemberPairList">
+          <Key>
+            <PropertyRef Name="MemberPairListID" />
+          </Key>
+          <Property Name="MemberPairListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="PairMemberID" Type="Int32" Nullable="false" />
+          <Property Name="PairID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Pairtime" Type="DateTime" Precision="3" />
+          <Property Name="Changetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberPairList_Member" FromRole="MemberPairList" ToRole="Member" />
+          <NavigationProperty Name="Pair" Relationship="Self.FK_MemberPairList_Pair" FromRole="MemberPairList" ToRole="Pair" />
+        </EntityType>
+        <EntityType Name="MemberStatus">
+          <Key>
+            <PropertyRef Name="MemberStatusID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="pMemberID" Type="Int32" Nullable="false" />
+          <Property Name="MemberStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberStatus_Member" FromRole="MemberStatus" ToRole="Member" />
+          <NavigationProperty Name="Member1" Relationship="Self.FK_MemberStatus_Member1" FromRole="MemberStatus" ToRole="Member" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_MemberStatus_Status" FromRole="MemberStatus" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Pair">
+          <Key>
+            <PropertyRef Name="PairID" />
+          </Key>
+          <Property Name="PairID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PairName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MemberPairList" Relationship="Self.FK_MemberPairList_Pair" FromRole="Pair" ToRole="MemberPairList" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Name="Photo1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AlbumsID" Type="Int32" Nullable="false" />
+          <Property Name="PhotoFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoCategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_Photo_Albums" FromRole="Photo" ToRole="Albums" />
+          <NavigationProperty Name="PhotoCategory" Relationship="Self.FK_Photo_PhotoCategory" FromRole="Photo" ToRole="PhotoCategory" />
+          <NavigationProperty Name="PhotoLike" Relationship="Self.FK_PhotoLike_Photo" FromRole="Photo" ToRole="PhotoLike" />
+        </EntityType>
+        <EntityType Name="PhotoCategory">
+          <Key>
+            <PropertyRef Name="PhotoCategoryID" />
+          </Key>
+          <Property Name="PhotoCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoCategoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Photo_PhotoCategory" FromRole="PhotoCategory" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="PhotoLike">
+          <Key>
+            <PropertyRef Name="PhotoLikeID" />
+          </Key>
+          <Property Name="PhotoLikeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_PhotoLike_Member" FromRole="PhotoLike" ToRole="Member" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_PhotoLike_Photo" FromRole="PhotoLike" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StatusName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_Activity_Status" FromRole="Status" ToRole="Activity" />
+          <NavigationProperty Name="MemberActivityDetail" Relationship="Self.FK_MemberActivityDetail_Status" FromRole="Status" ToRole="MemberActivityDetail" />
+          <NavigationProperty Name="MemberStatus" Relationship="Self.FK_MemberStatus_Status" FromRole="Status" ToRole="MemberStatus" />
+        </EntityType>
+        <EntityType Name="Stores">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StoreAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StorePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="StoreCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="StoreIntroduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_Activity_Stores" FromRole="Stores" ToRole="Activity" />
+        </EntityType>
+        <Association Name="FK_Activity_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Stores">
+          <End Role="Stores" Type="Self.Stores" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="ClubActivity">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="MemberActivity">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Albums_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_Albums">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumsID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="AlbumsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Authority">
+          <End Role="Authority" Type="Self.Authority" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CategoryType">
+          <End Role="CategoryType" Type="Self.CategoryType" Multiplicity="1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryType">
+              <PropertyRef Name="CategoryTypeID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="CategoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Club_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="MemberCategory" Type="Self.MemberCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="MemberCategory">
+              <PropertyRef Name="CategroyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Club_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubActivity_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="ClubActivity">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberClub_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="MemberClub" Type="Self.MemberClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="MemberClub">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_ClubActivity">
+          <End Role="ClubActivity" Type="Self.ClubActivity" Multiplicity="0..1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubActivity">
+              <PropertyRef Name="ClubActivityID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="ClubActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivity_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberActivity">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberCategory_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberCategory" Type="Self.MemberCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberCategory">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberClub_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberClub" Type="Self.MemberClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberClub">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPairList_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberPairList" Type="Self.MemberPairList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberPairList">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Member1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="pMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoLike_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="PhotoLike" Type="Self.PhotoLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="PhotoLike">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_MemberActivity">
+          <End Role="MemberActivity" Type="Self.MemberActivity" Multiplicity="1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberActivity">
+              <PropertyRef Name="MemberActivityID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="MemberActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberActivityDetail_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MemberActivityDetail" Type="Self.MemberActivityDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="MemberActivityDetail">
+              <PropertyRef Name="ActivityStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPairList_Pair">
+          <End Role="Pair" Type="Self.Pair" Multiplicity="1" />
+          <End Role="MemberPairList" Type="Self.MemberPairList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pair">
+              <PropertyRef Name="PairID" />
+            </Principal>
+            <Dependent Role="MemberPairList">
+              <PropertyRef Name="PairID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberStatus_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="MemberStatus">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_PhotoCategory">
+          <End Role="PhotoCategory" Type="Self.PhotoCategory" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoCategory">
+              <PropertyRef Name="PhotoCategoryID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="PhotoCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoLike_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="PhotoLike" Type="Self.PhotoLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="PhotoID" />
+            </Principal>
+            <Dependent Role="PhotoLike">
+              <PropertyRef Name="PhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity" EntityType="Self.Activity" />
+          <EntitySet Name="Albums" EntityType="Self.Albums" />
+          <EntitySet Name="Authority" EntityType="Self.Authority" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="CategoryType" EntityType="Self.CategoryType" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Club" EntityType="Self.Club" />
+          <EntitySet Name="ClubActivity" EntityType="Self.ClubActivity" />
+          <EntitySet Name="Member" EntityType="Self.Member" />
+          <EntitySet Name="MemberActivity" EntityType="Self.MemberActivity" />
+          <EntitySet Name="MemberActivityDetail" EntityType="Self.MemberActivityDetail" />
+          <EntitySet Name="MemberCategory" EntityType="Self.MemberCategory" />
+          <EntitySet Name="MemberClub" EntityType="Self.MemberClub" />
+          <EntitySet Name="MemberPairList" EntityType="Self.MemberPairList" />
+          <EntitySet Name="MemberStatus" EntityType="Self.MemberStatus" />
+          <EntitySet Name="Pair" EntityType="Self.Pair" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" />
+          <EntitySet Name="PhotoCategory" EntityType="Self.PhotoCategory" />
+          <EntitySet Name="PhotoLike" EntityType="Self.PhotoLike" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Stores" EntityType="Self.Stores" />
+          <AssociationSet Name="FK_Activity_Category" Association="Self.FK_Activity_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Member" Association="Self.FK_Activity_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Status" Association="Self.FK_Activity_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Stores" Association="Self.FK_Activity_Stores">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubActivity_Activity" Association="Self.FK_ClubActivity_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivity_Activity" Association="Self.FK_MemberActivity_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Albums_Member" Association="Self.FK_Albums_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Albums" Association="Self.FK_Photo_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Authority" Association="Self.FK_Member_Authority">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CategoryType" Association="Self.FK_Category_CategoryType">
+            <End Role="CategoryType" EntitySet="CategoryType" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Club_Category" Association="Self.FK_Club_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Club" EntitySet="Club" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberCategory_Category" Association="Self.FK_MemberCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="MemberCategory" EntitySet="MemberCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_City" Association="Self.FK_Member_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Club_Member" Association="Self.FK_Club_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Club" EntitySet="Club" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubActivity_Club" Association="Self.FK_ClubActivity_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberClub_Club" Association="Self.FK_MemberClub_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="MemberClub" EntitySet="MemberClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_ClubActivity" Association="Self.FK_MemberActivityDetail_ClubActivity">
+            <End Role="ClubActivity" EntitySet="ClubActivity" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivity_Member" Association="Self.FK_MemberActivity_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberCategory_Member" Association="Self.FK_MemberCategory_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberCategory" EntitySet="MemberCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberClub_Member" Association="Self.FK_MemberClub_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberClub" EntitySet="MemberClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPairList_Member" Association="Self.FK_MemberPairList_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberPairList" EntitySet="MemberPairList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Member" Association="Self.FK_MemberStatus_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Member1" Association="Self.FK_MemberStatus_Member1">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoLike_Member" Association="Self.FK_PhotoLike_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="PhotoLike" EntitySet="PhotoLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_MemberActivity" Association="Self.FK_MemberActivityDetail_MemberActivity">
+            <End Role="MemberActivity" EntitySet="MemberActivity" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberActivityDetail_Status" Association="Self.FK_MemberActivityDetail_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MemberActivityDetail" EntitySet="MemberActivityDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPairList_Pair" Association="Self.FK_MemberPairList_Pair">
+            <End Role="Pair" EntitySet="Pair" />
+            <End Role="MemberPairList" EntitySet="MemberPairList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberStatus_Status" Association="Self.FK_MemberStatus_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_PhotoCategory" Association="Self.FK_Photo_PhotoCategory">
+            <End Role="PhotoCategory" EntitySet="PhotoCategory" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoLike_Photo" Association="Self.FK_PhotoLike_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="PhotoLike" EntitySet="PhotoLike" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UNModelStoreContainer" CdmEntityContainer="UNEntities">
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="UNModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+                <ScalarProperty Name="ActName" ColumnName="ActName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ActIntroduction" ColumnName="ActIntroduction" />
+                <ScalarProperty Name="ActStartDate" ColumnName="ActStartDate" />
+                <ScalarProperty Name="ActEndDate" ColumnName="ActEndDate" />
+                <ScalarProperty Name="ActAddress" ColumnName="ActAddress" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="ActNumber" ColumnName="ActNumber" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ActPhoto" ColumnName="ActPhoto" />
+                <ScalarProperty Name="ActPhotoName" ColumnName="ActPhotoName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="UNModel.Albums">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="AlbumsName" ColumnName="AlbumsName" />
+                <ScalarProperty Name="AlbumsID" ColumnName="AlbumsID" />
+                <ScalarProperty Name="AlbumsIntroduction" ColumnName="AlbumsIntroduction" />
+                <ScalarProperty Name="AlbumsDate" ColumnName="AlbumsDate" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authority">
+            <EntityTypeMapping TypeName="UNModel.Authority">
+              <MappingFragment StoreEntitySet="Authority">
+                <ScalarProperty Name="AuthorityID" ColumnName="AuthorityID" />
+                <ScalarProperty Name="AuthorityName" ColumnName="AuthorityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="UNModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryType">
+            <EntityTypeMapping TypeName="UNModel.CategoryType">
+              <MappingFragment StoreEntitySet="CategoryType">
+                <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+                <ScalarProperty Name="CategoryTypeName" ColumnName="CategoryTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="UNModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Club">
+            <EntityTypeMapping TypeName="UNModel.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="ClubName" ColumnName="ClubName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ClubIntroduction" ColumnName="ClubIntroduction" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ClubImage" ColumnName="ClubImage" />
+                <ScalarProperty Name="Clubimagename" ColumnName="Clubimagename" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClubActivity">
+            <EntityTypeMapping TypeName="UNModel.ClubActivity">
+              <MappingFragment StoreEntitySet="ClubActivity">
+                <ScalarProperty Name="ClubActivityID" ColumnName="ClubActivityID" />
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="UNModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MemeberAddress" ColumnName="MemeberAddress" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="MemeberPhone" ColumnName="MemeberPhone" />
+                <ScalarProperty Name="MemeberIntroduction" ColumnName="MemeberIntroduction" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AuthorityID" ColumnName="AuthorityID" />
+                <ScalarProperty Name="MemberImage" ColumnName="MemberImage" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberActivity">
+            <EntityTypeMapping TypeName="UNModel.MemberActivity">
+              <MappingFragment StoreEntitySet="MemberActivity">
+                <ScalarProperty Name="MemberActivityID" ColumnName="MemberActivityID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberActivityDetail">
+            <EntityTypeMapping TypeName="UNModel.MemberActivityDetail">
+              <MappingFragment StoreEntitySet="MemberActivityDetail">
+                <ScalarProperty Name="MemberActivityDetailID" ColumnName="MemberActivityDetailID" />
+                <ScalarProperty Name="MemberActivityID" ColumnName="MemberActivityID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ActivityStatus" ColumnName="ActivityStatus" />
+                <ScalarProperty Name="ClubActivityID" ColumnName="ClubActivityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberCategory">
+            <EntityTypeMapping TypeName="UNModel.MemberCategory">
+              <MappingFragment StoreEntitySet="MemberCategory">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="CategroyID" ColumnName="CategroyID" />
+                <ScalarProperty Name="MemberCategroyID" ColumnName="MemberCategroyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberClub">
+            <EntityTypeMapping TypeName="UNModel.MemberClub">
+              <MappingFragment StoreEntitySet="MemberClub">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="MemberClubID" ColumnName="MemberClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberPairList">
+            <EntityTypeMapping TypeName="UNModel.MemberPairList">
+              <MappingFragment StoreEntitySet="MemberPairList">
+                <ScalarProperty Name="MemberPairListID" ColumnName="MemberPairListID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="PairMemberID" ColumnName="PairMemberID" />
+                <ScalarProperty Name="PairID" ColumnName="PairID" />
+                <ScalarProperty Name="Pairtime" ColumnName="Pairtime" />
+                <ScalarProperty Name="Changetime" ColumnName="Changetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberStatus">
+            <EntityTypeMapping TypeName="UNModel.MemberStatus">
+              <MappingFragment StoreEntitySet="MemberStatus">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="pMemberID" ColumnName="pMemberID" />
+                <ScalarProperty Name="MemberStatusID" ColumnName="MemberStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pair">
+            <EntityTypeMapping TypeName="UNModel.Pair">
+              <MappingFragment StoreEntitySet="Pair">
+                <ScalarProperty Name="PairID" ColumnName="PairID" />
+                <ScalarProperty Name="PairName" ColumnName="PairName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photo">
+            <EntityTypeMapping TypeName="UNModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="Photo1" ColumnName="Photo" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="PhotoIntroduction" ColumnName="PhotoIntroduction" />
+                <ScalarProperty Name="PhotoDate" ColumnName="PhotoDate" />
+                <ScalarProperty Name="AlbumsID" ColumnName="AlbumsID" />
+                <ScalarProperty Name="PhotoFileName" ColumnName="PhotoFileName" />
+                <ScalarProperty Name="PhotoCategoryID" ColumnName="PhotoCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoCategory">
+            <EntityTypeMapping TypeName="UNModel.PhotoCategory">
+              <MappingFragment StoreEntitySet="PhotoCategory">
+                <ScalarProperty Name="PhotoCategoryID" ColumnName="PhotoCategoryID" />
+                <ScalarProperty Name="PhotoCategoryname" ColumnName="PhotoCategoryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoLike">
+            <EntityTypeMapping TypeName="UNModel.PhotoLike">
+              <MappingFragment StoreEntitySet="PhotoLike">
+                <ScalarProperty Name="PhotoLikeID" ColumnName="PhotoLikeID" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="UNModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="UNModel.Stores">
+              <MappingFragment StoreEntitySet="Stores">
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="StoreAddress" ColumnName="StoreAddress" />
+                <ScalarProperty Name="StorePhone" ColumnName="StorePhone" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StoreCategoryID" ColumnName="StoreCategoryID" />
+                <ScalarProperty Name="StoreIntroduction" ColumnName="StoreIntroduction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +52,113 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Activity.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Albums.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Authority.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryType.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\City.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Club.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClubActivity.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Member.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberActivity.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberActivityDetail.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberCategory.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberClub.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberPairList.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberStatus.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pair.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Photo.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoCategory.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoLike.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stores.cs">
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\un.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>un.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\un.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>un.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\un.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>un.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Models\un.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>un.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\un.edmx.diagram">
+      <DependentUpon>un.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\un.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>un.Context.cs</LastGenOutput>
+      <DependentUpon>un.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\un.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>un.edmx</DependentUpon>
+      <LastGenOutput>un.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
