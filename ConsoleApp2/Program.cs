@@ -20,6 +20,8 @@ namespace ConsoleApp2
             {
                 Console.WriteLine(q[i].ActName.ToString());
             }
+            string bang = "bang";
+            Console.WriteLine(bang.ToUpper());
             Console.ReadLine();
             
             
